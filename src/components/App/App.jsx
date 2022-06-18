@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 //components
 import Header from '../Header/Header';
@@ -15,11 +16,24 @@ function App() {
   return (
     <div className='App'>
       <Header />
-      <PageOne />
-      <PageTwo />
+      <Router>
+        <Route exact path='/pageOne'>
+          <PageOne />
+        </Route>
+        <Route exact path='/pageTwo'>
+          <PageTwo />
+        </Route>
+      <Route exact path='/pageThree'>
       <PageThree />
+      </Route>
+      <Route exact path='/pageFour'>
       <PageFour />
+      </Route>
+      <Route exact path='/pageFive'>
       <PageFive />
+      </Route>
+      
+      </Router>
     </div>
   );
 }
