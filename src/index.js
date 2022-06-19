@@ -16,9 +16,9 @@ const emotionReducer = (
       return { ...state, feeling: action.payload };
     case "SET_UNDERSTANDING_DATA":
       return { ...state, understanding: action.payload };
-    case "SET_PAGETHREE_DATA":
+    case "SET_SUPPORT_DATA":
       return { ...state, support: action.payload };
-    case "SET_PAGEFOUR_DATA":
+    case "SET_COMMENTS_DATA":
       return { ...state, comments: action.payload };
     case "RESET_EMOTIONS":
       return action.payload;

@@ -1,35 +1,26 @@
-
-import { useState } from 'react'
 import { useDispatch } from "react-redux"
 import { useHistory } from 'react-router-dom'
 
 const PageFour = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-
-
-    const  [feeling, setFeeling] = useState('')
-    function handleSubmit(evt) {
-        evt.preventDefault
-        
+    
+    function setComments(comments) {
         dispatch({
-          type: `SET_PAGEFOUR_DATA`,
-          payload: feeling
+          type: `SET_COMMENTS_DATA`,
+          payload: comments
         });
-      
-        history.push('/pageFive');
       }
-
+    function next(){
+        history.push('/pageFive')
+    }
 
     return(
         <div>
             <h2>Any comments you would like to leave</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text-area" onChange={evt => setFeeling(evt.target.value)}/>
+                <input type="text-area" onChange={evt => setComments(evt.target.value)}/>
                 <br />
-                <button type='submit'>Next</button>
-            </form>
-            
+                <button onClick={next}>Next</button>            
         </div>
     )
 }
