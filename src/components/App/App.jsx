@@ -9,6 +9,7 @@ import PageTwo from '../PageTwo/PageTwo';
 import PageThree from '../PageThree/PageThree';
 import PageFour from '../PageFour/PageFour';
 import PageFive from '../PageFive/PageFive'
+import PageSix from '../PageSix/PageSix'
 import Home from '../Home/Home';
 import './App.css';
 
@@ -27,16 +28,19 @@ function App() {
         <Route exact path='/pageTwo'>
           <PageTwo />
         </Route>
-      <Route exact path='/pageThree'>
-      <PageThree />
-      </Route>
-      <Route exact path='/pageFour'>
-      <PageFour />
-      </Route>
-      <Route exact path='/pageFive'>
-      <PageFive />
-      </Route>
-      
+        <Route exact path='/pageThree'>
+          <PageThree />
+        </Route>
+        <Route exact path='/pageFour'>
+          <PageFour />
+        </Route>
+        <Route exact path='/pageFive'>
+          <PageFive />
+        </Route >
+        <Route exact path='/thankyou'>
+          <PageSix />
+        </Route>
+        
       </Router>
     </div>
   );

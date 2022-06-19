@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-router.post("/feedback", (req, res) => {
+router.post("/", (req, res) => {
   const entry = req.body;
+  console.log(req.body);
   const sqlQuery = `INSERT INTO feedback (feeling, understanding, support, comments)
-                      VALUES ($1,$2,$3,$4)`;
+                      VALUES ($1 , $2 , $3, $4)`;
   const sqlParams = [
     entry.feeling,
     entry.understanding,
@@ -23,3 +24,5 @@ router.post("/feedback", (req, res) => {
       res.sendStatus(500);
     });
 });
+
+module.exports = router;

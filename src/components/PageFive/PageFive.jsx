@@ -1,38 +1,40 @@
 import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
-
+import { useHistory } from "react-router-dom"
 
 const PageFive = () => {
     const feedback = useSelector(store => store.emotionReducer)
-
     const dispatch = useDispatch()
-    const handleClick =(feedback)=>{
-        // const feedback = {
-        //     feeling: emotions.pageOne,
-        //     understanding: emotions.pageTwo,
-        //     support: emotions.pageThree,
-        //     comments: emotions.pageFour
-        // }
-        axios.post('/feedback', feedback).then(()=>{
-        //    dispatch({
-        //     type: "RESET_EMOTIONS",
-        //     payload: { pageOne: 1, pageTwo: 1, pageThree: 1, pageFour: "" }
-        //    })
+    const history = useHistory()
+    const handleClick = () =>{
+        const submitFeedback = {
+            feeling: feedback.feeling,
+            understanding: feedback.understanding,
+            support: feedback.support,
+            comments: feedback.comments
+        }
+        console.log(feedback)
+        axios.post('/feedback', submitFeedback).then(()=>{
+           dispatch({
+            type: "RESET_EMOTIONS",
+            payload: { feeling: 1, understanding: 1, support: 1, comments: "" }
+           })
+           next()
         }).catch(err => {
             console.log('error in post', err)
         })
     }
-
-
-
+    function next() {
+        history.push('/thankyou')
+    }
     return(
         <div>
             <h2>Your Feelings are Valid</h2>
             <ul>
-                <li>Feelings: {feedback.pageOne}</li>
-                <li>Material: {feedback.pageTwo}</li>
-                <li>Supported: {feedback.pageThree}</li>
-                <li>Comments: {feedback.pageFour}</li>
+                <li>Feelings: {feedback.feeling}</li>
+                <li>Material: {feedback.understanding}</li>
+                <li>Supported: {feedback.support}</li>
+                <li>Comments: {feedback.comments}</li>
             </ul>
 
             
