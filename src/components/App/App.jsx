@@ -9,6 +9,7 @@ import PageTwo from '../PageTwo/PageTwo';
 import PageThree from '../PageThree/PageThree';
 import PageFour from '../PageFour/PageFour';
 import PageFive from '../PageFive/PageFive'
+import Home from '../Home/Home';
 import './App.css';
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
     <div className='App'>
       <Header />
       <Router>
+        <Route exact path='/'>
+          <Home />
+        </Route>
         <Route exact path='/pageOne'>
           <PageOne />
         </Route>

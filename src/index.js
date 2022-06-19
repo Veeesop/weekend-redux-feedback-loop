@@ -8,18 +8,20 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import logger from "redux-logger";
 
 const emotionReducer = (
-  state = { pageOne: 1, pageTwo: 1, pageThree: 1, pageFour: "" },
+  state = { feeling: 1, understanding: 1, support: 1, comments: "" },
   action
 ) => {
   switch (action.type) {
-    case "SET_PAGEONE_DATA":
-      return { ...state, pageOne: action.payload };
+    case "SET_FEELING_DATA":
+      return { ...state, feeling: action.payload };
     case "SET_PAGETWO_DATA":
-      return { ...state, pageTwo: action.payload };
+      return { ...state, understanding: action.payload };
     case "SET_PAGETHREE_DATA":
-      return { ...state, pageThree: action.payload };
+      return { ...state, support: action.payload };
     case "SET_PAGEFOUR_DATA":
-      return { ...state, pageFour: action.payload };
+      return { ...state, comments: action.payload };
+    case "RESET_EMOTIONS":
+      return action.payload;
   }
   return state;
 };

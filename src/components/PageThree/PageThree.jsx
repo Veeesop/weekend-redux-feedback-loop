@@ -28,6 +28,7 @@ const PageThree = () => {
             <form onSubmit={handleSubmit}>
             <input type="range" min="1" max="5" onChange={evt => setFeeling(evt.target.value)}/>
             <br />
+            <h3>{feeling}</h3>
             <button>Next</button>
             </form>
             
