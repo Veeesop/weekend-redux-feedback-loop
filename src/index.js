@@ -14,7 +14,7 @@ const emotionReducer = (
   switch (action.type) {
     case "SET_FEELING_DATA":
       return { ...state, feeling: action.payload };
-    case "SET_PAGETWO_DATA":
+    case "SET_UNDERSTANDING_DATA":
       return { ...state, understanding: action.payload };
     case "SET_PAGETHREE_DATA":
       return { ...state, support: action.payload };
