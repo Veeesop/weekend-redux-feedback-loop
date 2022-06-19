@@ -1,37 +1,29 @@
 
-import { useState } from 'react'
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector} from "react-redux"
 import { useHistory } from 'react-router-dom'
 
-
 const PageThree = () => {
-
     const dispatch = useDispatch()
     const history = useHistory()
-
-
-    const  [feeling, setFeeling] = useState('')
-    function handleSubmit() {
-        
+    const entry = useSelector(store => store.emotionReducer.support)
+    function setSupport(support) {
         dispatch({
-          type: `SET_PAGETHREE_DATA`,
-          payload: Number(feeling)
+          type: `SET_SUPPORT_DATA`,
+          payload: Number(support)
         });
-      
-        history.push('/pageFour');
       }
-
+    function next(){
+      history.push('/pageFour');
+    }
 
     return(
         <div>
             <h2>How well are you being supported</h2>
-            <form onSubmit={handleSubmit}>
-            <input type="range" min="1" max="5" onChange={evt => setFeeling(evt.target.value)}/>
+            <input type="range" min="1" max="5" onChange={evt => setSupport(evt.target.value)}/>
             <br />
-            <h3>{feeling}</h3>
-            <button>Next</button>
-            </form>
-            
+            <h3>{entry}</h3>
+            <br />
+            <button onClick={next}>Next</button>
         </div>
     )
 }
