@@ -7,14 +7,8 @@ const PageFive = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const handleClick = () =>{
-        const submitFeedback = {
-            feeling: feedback.feeling,
-            understanding: feedback.understanding,
-            support: feedback.support,
-            comments: feedback.comments
-        }
         console.log(feedback)
-        axios.post('/feedback', submitFeedback).then(()=>{
+        axios.post('/feedback', feedback).then(()=>{
            dispatch({
             type: "RESET_EMOTIONS",
             payload: { feeling: 1, understanding: 1, support: 1, comments: "" }
